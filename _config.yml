@@ -68,7 +68,7 @@ index_generator:
 avatar_style:
   radius: true
 
-sidebar-avatar: /img/avatar.png
+sidebar-avatar: img/avatar.png
 
 # Category & Tag
 default_category: uncategorized

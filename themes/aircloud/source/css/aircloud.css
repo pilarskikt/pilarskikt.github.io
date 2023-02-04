@@ -360,9 +360,9 @@ body {
   flex-direction: row;
 }
 .post-preview .post-time {
-  font-size: 17px;
+  font-size: 12px;
   color: #999999;
-  width: 125px;
+  width: 80px;
   font-weight: 300;
   line-height: 24px;
 }
@@ -379,13 +379,13 @@ body {
   cursor: pointer;
   margin-top: 0;
   margin-bottom: 5px;
-  color: #101010;
-  font-size: 18px;
+  color: rgb(244, 244, 246);
+  font-size: 20px;
   font-weight: 300;
   transition: color 0.4s;
 }
 .post-preview .post-info a h3:hover {
-  color: #4990E2;
+  color: rgb(244, 244, 246);
 }
 .post-preview .post-info p {
   margin-top: 0;
@@ -656,7 +656,7 @@ body {
   line-height: 24px;
   margin-top: 0;
   margin-bottom: 5px;
-  color: #101010;
+  color: #rgb(244, 244, 246);
   font-size: 20px;
   font-weight: 300;
 }
