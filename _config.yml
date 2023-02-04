@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: IT Journey
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: Pilarski
 language: en
 timezone: ''
 
@@ -65,6 +65,9 @@ index_generator:
   per_page: 10
   order_by: -date
 
+avatar_style:
+  radius: true
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -108,3 +111,22 @@ search:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+comment:
+  type: giscus
+  script: |
+      <script src="https://giscus.app/client.js"
+        data-repo="pilarskikt/pilarskikt.github.io"
+        data-repo-id="R_kgDOI5irmA"
+        data-category="General"
+        data-category-id="DIC_kwDOI5irmM4CT_7O"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+      </script>
