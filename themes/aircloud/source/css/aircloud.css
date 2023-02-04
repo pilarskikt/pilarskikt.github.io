@@ -656,7 +656,7 @@ body {
   line-height: 24px;
   margin-top: 0;
   margin-bottom: 5px;
-  color: #rgb(244, 244, 246);
+  color: rgb(244, 244, 246);
   font-size: 20px;
   font-weight: 300;
 }
