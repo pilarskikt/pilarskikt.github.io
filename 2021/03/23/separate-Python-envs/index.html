@@ -12,7 +12,7 @@
 
     <title>
         
-        
+        Keep your Python environment clean with virtualenv - undefined
         
     </title>
 
@@ -69,7 +69,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -110,6 +110,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Installation"><span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating-virtualenv"><span class="toc-text">Creating virtualenv</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Usage"><span class="toc-text">Usage</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -135,103 +139,56 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2021-03-23</div>
-        <div class="post-info">
-            <a href="https://pilarskikt.github.io/2021/03/23/separate-Python-envs/">
-                <h3>
-                    Keep your Python environment clean with virtualenv
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#python" title="python">python</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#virtualenv" title="virtualenv">virtualenv</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#virtual environments" title="virtual environments">virtual environments</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#dev" title="dev">dev</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#devops" title="devops">devops</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        Keep your Python environment clean with virtualenv
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-03-19</div>
-        <div class="post-info">
-            <a href="https://pilarskikt.github.io/2021/03/19/PowerCLI-that-can-save/">
-                <h3>
-                    PowerCLI that can save you a lot of time
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#vmware" title="vmware">vmware</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#powercli" title="powercli">powercli</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#cmd" title="cmd">cmd</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#scripting" title="scripting">scripting</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#automation" title="automation">automation</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-03-23 00:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#python" title="python">python</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#virtualenv" title="virtualenv">virtualenv</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#virtual environments" title="virtual environments">virtual environments</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#dev" title="dev">dev</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#devops" title="devops">devops</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-11-05</div>
-        <div class="post-info">
-            <a href="https://pilarskikt.github.io/2020/11/05/Start-blog-with-Hexo/">
-                <h3>
-                    Start blog with Hexo
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#blog" title="blog">blog</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#setup" title="setup">setup</a>
-                <span>/</span>
-                
-                
-            </p>
+    <div class="post-content ">
+        <p>As Cloud Engineer I am working with Python and from time to time scripts&#x2F;apps can require different Python versions or use many different dependencies. This can lead to some mess if I would like to do all those Python things on my OS. But have no fear - this is where virtualenv comes into play. Thanks to that neat tool we can create isolated Python environments for our projects&#x2F;applications without messing with each project environment. Installation and usage are VERY simple so let’s go through it, shall we?</p>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>This couldnt be easier:<br><code>pip install virtualenv</code></p>
+<h1 id="Creating-virtualenv"><a href="#Creating-virtualenv" class="headerlink" title="Creating virtualenv"></a>Creating virtualenv</h1><p>Now we need directory for our virtualenvs, it can be anywhere but i prefer to have one dir with all my virtual environments so in my example:<br><code>mkdir venvs</code><br><code>cd venvs</code><br>Next create environment<br><code>virtualenv NAME_OF_ENVIRONMENT</code></p>
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p>now everything we need is just to activate our virtual environment by<br><code>source NAME_OF_ENVIRONMENT/bin/activate</code><br>i would also recommend to add it as alias in your .zshrc for example:<br><code>alias py3=&quot;source ~/venvs/Python3/bin/activate&quot;</code><br>so next time you activate it just by calling <code>py3</code> for example.<br>If you activated virtualenv you should see in your terminal prompt name of that venv and that mean you are good to go!<br>Now any package installed with pip (<code>pip install PACKAGE_NAME</code>) is hold in that virtual environment<br>without messing anything directly on you OS.</p>
+<p>Last thing that will be needed is deactivating your virtualenv which couldn’t be simpler:<br><code>deactivate</code> - after writing this in terminal you will exit from virtual environment.</p>
+<p>That’s basically all, i hope this short “how to” was useful and make your work easier.<br>See you next time!</p>
+
+        
+        <br />
+        <div id="comment-container">
         </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
     </div>
-    
 </div>
-<ul class="pager">
-    
-    
-</ul>
 
     </div>
 </div>
@@ -271,7 +228,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
@@ -280,6 +237,23 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+    <script src="https://giscus.app/client.js"
+  data-repo="pilarskikt/pilarskikt.github.io"
+  data-repo-id="R_kgDOI5irmA"
+  data-category="General"
+  data-category-id="DIC_kwDOI5irmM4CT_7O"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+</script>
 
 
 
