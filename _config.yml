@@ -99,6 +99,11 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: aircloud
 
+search:
+  path: search.json
+  field: post
+  
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
