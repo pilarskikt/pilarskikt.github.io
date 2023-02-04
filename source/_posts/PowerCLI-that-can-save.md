@@ -2,7 +2,7 @@
 title: PowerCLI that can save you a lot of time
 description: List of PowerCLI one-liners that could be helpful to speedup work.
 tags: [vmware, powercli, cmd, scripting, automation]
-date: 2021-03-19 20:00:00
+date: 2021-03-19
 ---
 
 # PowerCLI one-liners

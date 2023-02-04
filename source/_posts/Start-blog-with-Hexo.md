@@ -1,6 +1,6 @@
 ---
 title: Start blog with Hexo
-date: 2020-11-05 19:29:09
+date: 2020-11-05
 tags: [Hexo,blog,setup]
 ---
 Beginning...
@@ -16,7 +16,7 @@ easy and well explained so o won't go through it here.
 Let's focus on Hexo now:
 <br/>
 
-## Install npm 
+## Install npm
 First of all you will need to install npm if you dont have it already.(npm is distributed with Node.js)
 
 *  **Mac**
