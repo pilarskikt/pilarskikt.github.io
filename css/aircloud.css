@@ -677,7 +677,7 @@ body {
   margin-left: 5px;
 }
 .article-content {
-  color: #2f3339;
+  color: #999999;
   font-size: 16px;
   line-height: 170%;
   letter-spacing: 1px;
@@ -742,7 +742,7 @@ body {
   list-style-position: inside;
   margin-bottom: 5px;
   margin-top: 5px;
-  color: #2f3339;
+  color: #999999;
   font-size: 16px;
   line-height: 170%;
   letter-spacing: 1px;
