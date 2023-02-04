@@ -372,6 +372,7 @@ body {
 .post-preview .post-info a {
   cursor: pointer;
   text-decoration: none;
+  color: rgb(244, 244, 246);
 }
 .post-preview .post-info a h3 {
   line-height: 24px;
