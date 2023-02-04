@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        PowerCLI that can save you a lot of time - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>John Doe</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>COLLECT</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PowerCLI-one-liners"><span class="toc-text">PowerCLI one-liners</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        PowerCLI that can save you a lot of time
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-03-19 20:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#vmware" title="vmware">vmware</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#powercli" title="powercli">powercli</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#cmd" title="cmd">cmd</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#scripting" title="scripting">scripting</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#automation" title="automation">automation</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="PowerCLI-one-liners"><a href="#PowerCLI-one-liners" class="headerlink" title="PowerCLI one-liners"></a>PowerCLI one-liners</h1><p>Here are some on-liners which back in the days when i was working with VMware i always had in my pocket as they help to save a lot of time by finding something or automate some process.</p>
+<p>Get VM from host cluster on specified datastore</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Cluster &quot;CLUSTER_NAME&quot; | Get-VM |?&#123;($_.extensiondata.config.datastoreurl|?&#123;$_.name -eq &quot;ESXI_NAME&quot;&#125;)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>List snapshots older than 3 days</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | Get=Snapshot | Where &#123;$_.Created -Lt (Get-Date).AddDays(-3)&#125; | Select-Object VM, Name, Created</span><br></pre></td></tr></table></figure>
+
+
+<p>Delete snapshots older than 3 days</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | Get=Snapshot | Where &#123;$_.Created -Lt (Get-Date).AddDays(-3)&#125; | Remove-Snapshot -Confirm:$false</span><br></pre></td></tr></table></figure>
+
+
+<p>Free space on datastores connected to the host</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Get-Datastore -VMHost ESXI_NAME| select-object name, CapacityGB, @&#123;Label=&quot;FreespaceGB&quot;;E=&#123;&quot;&#123;0:n2&#125;&quot; -f($_.FreespaceGB)&#125;&#125; | sort name</span><br><span class="line">or</span><br><span class="line">get-datastore | select-object name, CapacityGB, @&#123;Label=&quot;FreespaceGB&quot;;E=&#123;&quot;&#123;0:n2&#125;&quot; -f($_.FreespaceGB)&#125;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>Datastore name &amp; naa</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$esxName = &quot;ESXI_NAME&quot;</span><br><span class="line">Connect-VIServer vcenter_server_name</span><br><span class="line">Get-VMHost -Name $esxName | Get-Datastore |</span><br><span class="line">Where-Object &#123;$_.ExtensionData.Info.GetType().Name -eq &quot;VmfsDatastoreInfo&quot;&#125; |</span><br><span class="line">ForEach-Object &#123;</span><br><span class="line">if ($_)</span><br><span class="line">&#123;</span><br><span class="line">$Datastore = $_</span><br><span class="line">$Datastore.ExtensionData.Info.Vmfs.Extent |</span><br><span class="line">Select-Object -Property @&#123;Name=&quot;Name&quot;;Expression=&#123;$Datastore.Name&#125;&#125;,</span><br><span class="line">DiskName</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Datastore NAA</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-datastore | ? &#123; $_.Name -like &quot;DATASTORE_NAME&quot; &#125; | Select Name, @&#123;N=&quot;Naa&quot;;E=&#123;$_.extensiondata.info.vmfs.extent.diskname&#125;&#125; | Sort Name</span><br></pre></td></tr></table></figure>
+
+
+<p>ESXi WWN</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Cluster &quot;CLUSTER_NAME&quot; | Get-VMhost | Get-VMHostHBA -Type FibreChannel | where &#123;$_.Status -eq &quot;online&quot;&#125; | Select @&#123;N=&quot;Cluster&quot;;E=&#123;$cluster&#125;&#125;,VMHost,Device,@&#123;N=&quot;WWN&quot;;E=&#123;&quot;&#123;0:X&#125;&quot;-f$_.PortWorldWideName&#125;&#125; | Sort VMhost,Device</span><br></pre></td></tr></table></figure>
+
+
+<p>Host utilization</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Get-VMHost | Sort-Object -Property Name |</span><br><span class="line">Format-Table Name,State,CpuTotalMhz,CpuUsageMhz, MemoryTotalMB, MemoryUsageMB,</span><br><span class="line">  @&#123;N=&quot;Status&quot;;E=&#123;$_.ExtensionData.Summary.OverallStatus&#125;&#125;,</span><br><span class="line">  @&#123;N=&quot;CPU%&quot;;E=&#123;[Math]::Round(100*$_.ExtensionData.Summary.QuickStats.OverallCpuUsage/($_.ExtensionData.Summary.Hardware.CpuMhz*$_.ExtensionData.Summary.Hardware.NumCpuCores),0)&#125;&#125;,</span><br><span class="line">  @&#123;N=&quot;Mem%&quot;;E=&#123;[Math]::Round(100*$_.ExtensionData.Summary.QuickStats.OverallMemoryUsage*1MB/$_.ExtensionData.Summary.Hardware.MemorySize,0)&#125;&#125; | Export-csv c:\temp\myreportutilization.csv</span><br></pre></td></tr></table></figure>
+
+<p>Start VM</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$vms = get-vm ; foreach ($vm in $vms)&#123;Start-VM -VM $vm.name&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Shutdown-guest-OS</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$vms = get-vm ; foreach ($vm in $vms)&#123;Shutdown-VMGuest -VM $vm.name -Confirm:$false&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Stop VM - shutdown VM &#x2F;!\ No guest OS shutdown &#x2F;!\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$vms = get-vm ; foreach ($vm in $vms)&#123;Stop-VM -VM $vm.name -Confirm:$false&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Shutdown-guest-OS per datastore</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$vms = get-vm -datastore [datastore] ; foreach ($vm in $vms)&#123;Shutdown-VMGuest -VM $vm.name -Confirm:$false&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Remove VM (delete Permanently)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$vms = get-vm ; foreach ($vm in $vms)&#123;Remove-VM -VM $vm.name -DeletePermanently -Confirm:$false&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Unmount virtual CD-ROM</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM &lt;filters&gt; | Get-CDDrive | Set-CDDrive -NoMedia -Confirm:$false</span><br></pre></td></tr></table></figure>
+
+
+<p>Rescan SAN (all)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Get-VMHost | Get-VMHostStorage -RescanAllHba</span><br><span class="line">Get-VMHost | Get-VMHostStorage -RescanVMFS</span><br></pre></td></tr></table></figure>
+
+<p>Rescan HBA and NFS in cluster</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Cluster -Name “CLUSTER_NAME” | Get-VMHost | Get-VMHostStorage -RescanAllHba</span><br></pre></td></tr></table></figure>
+
+<p>Check SAN Policy</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$hs = get-vmhost ; foreach ($h in $hs)&#123;get-scsilun -vmhost $h -luntype disk&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Set SAN policy to Round Robin</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$hs = get-vmhost ; foreach ($h in $hs)&#123;get-scsilun -vmhost $h -luntype disk | set-scsilun -multipathpolicy &quot;RoundRobin&quot;&#125;</span><br><span class="line"></span><br><span class="line">or only for LUN path with fixed policy</span><br><span class="line"></span><br><span class="line">$hs = get-vmhost ; foreach ($h in $hs)&#123;get-scsilun -vmhost $h -luntype disk | where &#123;$_.MultipathPolicy -eq &quot;Fixed&quot;&#125; | set-scsilun -multipathpolicy &quot;RoundRobin&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>VMotion Bulk !</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM -Location (Get-VMHost ‘&lt;filters&gt;’) | Move-VM -Destination (GetVM-Host ‘&lt;filters&gt;’)</span><br></pre></td></tr></table></figure>
+
+
+<p>Vmotion Bulk ! (sequential)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$vms = get-vm &lt;filters&gt; -Location &lt;filters&gt; ; foreach($vm in $vms)&#123; $task = move-vm $vm -Destination &lt;filters&gt; -RunAsync ; Wait-Task -Task $task &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>VMotion Bulk ! With selected vm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$vms = get-vm -Location &lt;filters&gt; | sort MemoryGB | Select-Object -last 30 ; foreach($vm in $vms)&#123; $task = move-vm $vm -Destination &lt;filters&gt; -RunAsync ; Wait-Task -Task $task &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Move to folder</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-vm &lt;filters&gt; | move-vm -destination &lt;filters&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>Get VM Size (GB)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-vm | get-view | Select @&#123;N=&quot;Name&quot;;E=&#123;$_.name&#125;&#125;, @&#123;N=&quot;Size(GB)&quot;;E=&#123;[math]::Round((($_.Storage.PerDatastoreUsage.Committed)+($_.Storage.PerDatastoreUsage.Uncommitted))/ 1GB)&#125;&#125;, @&#123;N=&quot;Used(GB)&quot;;E=&#123;[math]::Round(($_.Storage.PerDatastoreUsage.Committed)/ 1GB)&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Get VM need disk consolidate</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | Where-Object &#123;$_.Extensiondata.Runtime.ConsolidationNeeded&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Consolidate snapshot</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | Where-Object &#123;$_.Extensiondata.Runtime.ConsolidationNeeded&#125; | ForEach-Object &#123;$_.ExtensionData.ConsolidateVMDisks()&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Search VM on Datastore</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir -Recurse -Path vmstores:\ -Include *.vmx | select Name,DatastoreFullPath</span><br></pre></td></tr></table></figure>
+
+
+<p>Parse All pNics with model, drivers, drivers, version</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$allvmnics = @() ; $vmnics = @() ; $vmhosts = get-vmhost | Where-Object &#123;$_.ConnectionState -eq &quot;Connected&quot;&#125; | sort name ; foreach ($vmhost in $vmhosts) &#123; $vmnics += get-vmhostnetworkadapter -Physical -vmhost $vmhost | Select @&#123;N=&quot;HostName&quot;; E=&#123;$vmhost&#125;&#125;, DeviceName &#125; ; foreach ($vmnic in $vmnics) &#123; $esxcli = get-esxcli -vmhost $vmnic.Hostname ; $allvmnics += $vmnic | select @&#123;N=&quot;Hostname&quot; ; E=&#123;$vmnic.HostName&#125;&#125;, @&#123;N=&quot;DeviceName&quot; ; E=&#123;$vmnic.DeviceName&#125;&#125;, @&#123;N=&quot;NicModel&quot; ; E=&#123;$nicmodel = $esxcli.network.nic.list() | where-object &#123;$vmnic.DeviceName -eq $_.name&#125;; $nicmodel.Description&#125;&#125; , @&#123;N=&quot;Drivers&quot; ; E=&#123;$esxcli.network.nic.get($vmnic.DeviceName).DriverInfo.Driver&#125;&#125;, @&#123;N=&quot;DriverVersion&quot;;E=&#123;$esxcli.network.nic.get($vmnic.DeviceName).DriverInfo.Version&#125;&#125;&#125; ; $allvmnics | Sort-Object Hostname, DeviceName | Format-Table -auto</span><br></pre></td></tr></table></figure>
+
+
+<p>Parse network info (CDP)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cdpinfo = @() ; Get-VMHost | Where-Object &#123;$_.ConnectionState -eq &quot;Connected&quot;&#125; | sort Name | %&#123;Get-View $_.ID&#125; | %&#123;$esxname = $_.Name; Get-View $_.ConfigManager.NetworkSystem&#125; | %&#123; foreach($physnic in $_.NetworkInfo.Pnic)&#123; $pnicInfo = $_.QueryNetworkHint($physnic.Device); foreach($hint in $pnicInfo)&#123; if( $hint.ConnectedSwitchPort ) &#123; $cdpinfo = $hint.ConnectedSwitchPort | select SystemName, PortId, Location &#125; else &#123; $cdpinfo = &quot;No CDP information available.&quot; &#125; ; write-host $esxname $physnic.Device $cdpinfo.SystemName $cdpinfo.PortId $cdpinfo.Location &#125; &#125; &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Get vcenter, cluster, esx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-vmhost | Select @&#123;N=&quot;vCenter&quot;;E=&#123;$_.ExtensionData.CLient.ServiceUrl.Split(&#x27;/&#x27;)[2]&#125;&#125;, @&#123;N=&quot;Cluster&quot;;E=&#123;get-cluster -vmhost $_.Name&#125;&#125;, Name</span><br></pre></td></tr></table></figure>
+
+
+<p>Get dVswitch info</p>
+<pre><code>get-vmhost | sort Name | %&#123; $esxname = $_.Name ; get-vdswitch -vmhost $esxname&#125; | %&#123; $dvswitch = $_.Name ; Get-VDport -VDSwitch $dvswitch -uplink &#125; | Get-VDUplinkLacpPolicy | Select @&#123;N=&quot;Hostname&quot;;E=&#123;$esxname&#125;&#125;, @&#123;N=&quot;DVswitch&quot;;E=&#123;$dvswitch&#125;&#125;, @&#123;N=&quot;LACPEnabled&quot;;E=&#123;$_.Enabled&#125;&#125;, @&#123;N=&quot;LACPMode&quot;;E=&#123;$_.Mode&#125;&#125; | group-object DVswitch
+</code></pre>
+<p>Find the biggest VM on the fullest DS</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-vm -datastore (get-datastore &lt;filter&gt;) | get-view | Select @&#123;N=&quot;Name&quot;;E=&#123;$_.name&#125;&#125;, @&#123;N=&quot;Size(GB)&quot;;E=&#123;[math]::Round((($_.Storage.PerDatastoreUsage.Committed)+($_.Storage.PerDatastoreUsage.Uncommitted))/ 1GB)&#125;&#125;, @&#123;N=&quot;Used(GB)&quot;;E=&#123;[math]::Round(($_.Storage.PerDatastoreUsage.Committed)/ 1GB)&#125;&#125; | Sort &quot;Used(GB)&quot; | select-object -last 1</span><br></pre></td></tr></table></figure>
+
+
+<p>Get NTP configuration by host (updated)</p>
+<pre><code>Get-VMHost | Where-Object &#123;$_.ConnectionState -ne &quot;Disconnected&quot;&#125; | Sort Name | Select-Object @&#123;N=&quot;vCenter&quot;;E=&#123;$_.ExtensionData.CLient.ServiceUrl.Split(&#39;/&#39;)[2]&#125;&#125;, Name, @&#123;Name=&quot;NTPServer&quot;;Expression=&#123;$_ | Get-VMHostNtpServer&#125;&#125;, @&#123;Name=&quot;NTPRunning&quot;;Expression=&#123;($_ | Get-VMHostService | Where-Object &#123;$_.key -eq &quot;ntpd&quot;&#125;).Running&#125;&#125; | ft -auto
+</code></pre>
+<p>Get DvPortGroup per VM for a datastore</p>
+<pre><code>$vms = get-vm -datastore DATASTORE_NAME ; foreach ($vm in $vms)&#123;$DvPortGroup = Get-VirtualPortGroup -vm $vm.Name ; $vm | Select @&#123;N=&quot;Name&quot;;E=&#123;$_.name&#125;&#125;, @&#123;N=&quot;DvPortGroup&quot;;E=&#123;$DvPortGroup.Name&#125;&#125;&#125; | ft -autosize
+</code></pre>
+<p>Add NFS datastore on All Hosts on a Cluster</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-cluster &lt;filter&gt; | get-vmhost | New-Datastore -Nfs -Name &lt;name&gt; -Path &lt;path&gt; -NfsHost &lt;nfsname|@ip&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>Export all portgroup</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VDPortgroup | Select Name, VirtualSwitch, Datacenter, VlanConfiguration | Export-Csv &quot;file.csv&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p>Get-VM PowerOff with Notes</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-vm | where &#123; $_.PowerState -eq &quot;PoweredOff&quot;&#125; | Select @&#123;N=&quot;Name&quot;;E=&#123;$_.Name&#125;&#125;,@&#123;N=&quot;PowerState&quot;;E=&#123;$_.PowerState&#125;&#125;,@&#123;N=&quot;Note&quot;;E=&#123;Get-VM $_ | Select-Object -ExpandProperty Notes&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>PowerOff VM from list</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foreach($vmlist in (Get-Content -Path C:\TEMP\vmlist.txt))&#123; $vm = Get-VM -Name $vmlist Shutdown-VMGuest -VM $vm -Confirm:$false&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Get VM with technical stuff</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-vm | Select @&#123;N=&quot;Name&quot;;E=&#123;$_.Name&#125;&#125;,@&#123;N=&quot;PowerState&quot;;E=&#123;$_.PowerState&#125;&#125;, @&#123;N=&quot;vCenter&quot;;E=&#123;(get-vmhost -VM $_.Name).ExtensionData.CLient.ServiceUrl.Split(&#x27;/&#x27;)[2]&#125;&#125;, @&#123;N=&quot;Cluster&quot;;E=&#123;(Get-Cluster -vmhost (get-vmhost -VM $_.Name).Name).Name&#125;&#125;, @&#123;N=&quot;VMhost&quot;;E=&#123;(get-vmhost -VM $_.Name).Name&#125;&#125; | ft -autosize</span><br></pre></td></tr></table></figure>
+
+
+<p>Get-datastore Naa</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-datastore | ? &#123; $_.Name -like &lt;filter&gt; &#125; | Select Name, @&#123;N=&quot;Naa&quot;;E=&#123;$_.extensiondata.info.vmfs.extent.diskname&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Get WWN with HBA Status for all Hosts</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VMHost | Get-VMHostHBA -Type Fibrechannel | Select @&#123;N=&quot;vCenter&quot;;E=&#123;(get-vmhost $_.VMHost).ExtensionData.CLient.ServiceUrl.Split(&#x27;/&#x27;)[2]&#125;&#125;, @&#123;N=&quot;Cluster&quot;;E=&#123;(get-vmhost $_.VMHost).Parent&#125;&#125;, VMHost, Device, Status, @&#123;N=&quot;WWN&quot;;E=&#123;&quot;&#123;0:X&#125;&quot; -f $_.PortWorldWideName&#125;&#125; | Sort vCenter, Cluster, VMHost, Device | ft -auto</span><br></pre></td></tr></table></figure>
+
+
+<p>Get-VM by selected guest OS</p>
+<pre><code>Get-VM | Where &#123;$_.PowerState -eq &quot;PoweredOn&quot; -and $_.Guest.OSFullName -like &quot;&lt;filter&gt;&quot;&#125; | select @&#123;N=&quot;Name&quot;;E=&#123;$_.Name&#125;&#125;, @&#123;N=&quot;Guest-OS&quot;;E=&#123;$_.Guest.OSFullName&#125;&#125;
+</code></pre>
+<p>Get-VM by name &#x2F; OS</p>
+<pre><code>get-vm | Select @&#123;N=&quot;Name&quot;;E=&#123;$_.name&#125;&#125;, @&#123;N=&quot;GuestOS&quot;;E=&#123;$_.Guest.OSFullName&#125;&#125;
+</code></pre>
+<p>Get VM Stats (24h)</p>
+<pre><code>get-vm | Where &#123;$_.PowerState -eq &quot;PoweredOn&quot;&#125; | Sort Name | Select Name, Host, NumCpu, MemoryMB, @&#123;N=&quot;Cpu.UsageMhz.Average&quot;;E=&#123;[Math]::Round((($_ |Get-Stat -Stat cpu.usagemhz.average -Start (Get-Date).AddHours(-24)-IntervalMins 5 -MaxSamples (12) |Measure-Object Value -Average).Average),2)&#125;&#125;, @&#123;N=&quot;Mem.Usage.Average&quot;;E=&#123;[Math]::Round((($_ |Get-Stat -Stat mem.usage.average -Start (Get-Date).AddHours(-24)-IntervalMins 5 -MaxSamples (12) |Measure-Object Value -Average).Average),2)&#125;&#125; | Format-Table -auto
+</code></pre>
+<p>Get VM Stats (30 Days)</p>
+<pre><code>Get-VM | Where &#123;$_.PowerState -eq &quot;PoweredOn&quot;&#125; | Select Name, Host, NumCpu, MemoryMB, @&#123;N=&quot;CPU(100)&quot; ; E=&#123;[Math]::Round((($_ | Get-Stat -Stat cpu.usage.average -Start (Get-Date).AddHours(-720) -IntervalMins 5 -MaxSamples (8640) | Measure-Object Value -Average).Average),2)&#125;&#125;, @&#123;N=&quot;Memory(100)&quot; ; E=&#123;[Math]::Round((($_ | Get-Stat -Stat mem.usage.average -Start (Get-Date).AddHours(-720) -IntervalMins 5 -MaxSamples (8640) | Measure-Object Value -Average).Average),2)&#125;&#125; , @&#123;N=&quot;Network(KBps)&quot; ; E=&#123;[Math]::Round((($_ | Get-Stat -Stat net.usage.average -Start (Get-Date).AddHours(-720) -IntervalMins 5 -MaxSamples (8640) | Measure-Object Value -Average).Average),2)&#125;&#125; | Format-Table -auto
+</code></pre>
+<p>Star SSH daemon on all host in a cluster</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Cluster | Get-VMHost | ForEach &#123;Start-VMHostService -HostService ($_ | Get-VMHostService | Where &#123;$_.Key -eq “TSM-SSH”&#125;)&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Storage information per VM</p>
+<pre><code>get-cluster | get-vmhost | get-vm | Get-HardDisk | Select @&#123;N=&quot;Host&quot;;E=&#123;$(get-vm $_.Parent).host&#125;&#125;, Parent, CapacityGB, @&#123;N=&quot;RealUsageGB&quot;;E=&#123;[math]::Round(((($_.Parent | get-view).Storage.PerDatastoreUsage.Committed)+(($vm | get-view).Storage.PerDatastoreUsage.Uncommitted))/ 1GB)&#125;&#125;, StorageFormat, Filename
+</code></pre>
+<p>Get Uptime for each vmhost</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VMHost | Get-View | select Name, @&#123;N=&quot;Uptime&quot;; E=&#123;(Get-Date) - $_.Summary.Runtime.BootTime&#125;&#125; | Sort Name</span><br></pre></td></tr></table></figure>
+
+
+<p>Search iso image on all datastores</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir -Recurse -Path vmstores:\ -Include *.iso | select Name,DatastoreFullPath</span><br></pre></td></tr></table></figure>
+
+
+<p>Manage CD image</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">New-CDDrive -VM VM -ISOPath &quot;DatastoreFullPath&quot;</span><br><span class="line"></span><br><span class="line">Get-VM (filter vm) | Get-CDDrive | Where &#123; $_.IsoPath &#125; | Select Parent, IsoPath, ConnectionState</span><br><span class="line"></span><br><span class="line">get-vm (filter vm) | Get-CDDrive | Where &#123; $_.IsoPath &#125; | Set-CDDrive -connected:$true -Confirm:$false</span><br><span class="line"></span><br><span class="line">New-CDDrive -VM VM -ISOPath &quot;[sof-20666-esx:storage1] ISO\testISO.iso&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Get VM @MAC</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-vm | Select @&#123;N=&quot;vCenter&quot;;E=&#123;(get-vmhost -VM $_.Name).ExtensionData.CLient.ServiceUrl.Split(&#x27;/&#x27;)[2]&#125;&#125;, @&#123;N=&quot;Cluster&quot;;E=&#123;(Get-Cluster -vmhost $_.VMhost).Name&#125;&#125;, VMhost, Name, @&#123;N=&quot;PowerState&quot;;E=&#123;$_.PowerState&#125;&#125;, @&#123;N=&quot;MAC&quot;;E=&#123;($_ | Get-NetworkAdapter).MacAddress&#125;&#125;, @&#123;N=&quot;MACType&quot;;E=&#123;($_ | Get-NetworkAdapter).ExtensionData.AddressType&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Get VM with Ping status and host</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | Select Name, PowerState, @&#123;N=&quot;Ping&quot;;E=&#123;if($_.PowerState -eq &quot;PoweredOn&quot; -and (Test-Connection -ComputerName $_.Name))&#123;&quot;Online&quot;&#125;else&#123;&quot;Offline&quot;&#125;&#125;&#125;, VMHost | ft -auto</span><br></pre></td></tr></table></figure>
+
+
+<p>Check hardware acceleration</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get-vmhost | where-object &#123;$_.ConnectionState -eq &quot;Connected&quot;&#125; | Sort Name | Select Name, @&#123;N=&quot;Move&quot;;E=&#123; ($_ | Get-AdvancedSetting -name DataMover.HardwareAcceleratedMove).Value &#125;&#125;, @&#123;N=&quot;Init&quot;;E=&#123; ($_ | Get-AdvancedSetting -name DataMover.HardwareAcceleratedInit).Value &#125;&#125;, @&#123;N=&quot;VMFS3Lock&quot;;E=&#123; ($_ | Get-AdvancedSetting -name VMFS3.HardwareAcceleratedLocking).Value &#125;&#125;, @&#123;N=&quot;VMFS3Delete&quot;;E=&#123; ($_ | Get-AdvancedSetting -name VMFS3.EnableBlockDelete).Value &#125;&#125;, @&#123;N=&quot;TransferSize&quot;;E=&#123; ($_ | Get-AdvancedSetting -name DataMover.MaxHWTransferSize).Value &#125;&#125; | ft -auto</span><br></pre></td></tr></table></figure>
+
+
+<p>Get-VM with multi lines Notes</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | Select @&#123;N=&quot;Name&quot;;E=&#123;$_.Name&#125;&#125;, @&#123;N=&quot;Notes&quot;;E=&#123;$_.Notes -replace(&quot;`r`n&quot;, &quot; &quot;)&#125;&#125;</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">Get-VM | Select @&#123;N=&quot;Name&quot;;E=&#123;$_.Name&#125;&#125;, @&#123;N=&quot;Notes&quot;;E=&#123;$_.Notes -replace(&quot;`n&quot;, &quot; &quot;)&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Cluster + host + datastore Naa + MultipathPolicy + DS size</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Cluster | sort Name | get-vmhost | where &#123;$_.ConnectionState -eq &quot;Connected&quot;&#125; | sort name | get-scsilun -LunType disk | Select @&#123;N=&quot;Cluster&quot;;E=&#123;(get-vmhost $_.VMHost).Parent&#125;&#125;, VMHost, CanonicalName, MultipathPolicy, CapacityGB | ft -auto</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
