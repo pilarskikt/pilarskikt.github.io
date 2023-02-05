@@ -172,7 +172,7 @@
 </span>
 </span>
     </div>
-    <div class="post-content ">
+    <div class="post-content no-indent">
         <h1 id="PowerCLI-one-liners"><a href="#PowerCLI-one-liners" class="headerlink" title="PowerCLI one-liners"></a>PowerCLI one-liners</h1><p>Here are some on-liners which back in the days when i was working with VMware i always had in my pocket as they help to save a lot of time by finding something or automate some process.</p>
 <p>Get VM from host cluster on specified datastore</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Cluster &quot;CLUSTER_NAME&quot; | Get-VM |?&#123;($_.extensiondata.config.datastoreurl|?&#123;$_.name -eq &quot;ESXI_NAME&quot;&#125;)&#125;</span><br></pre></td></tr></table></figure>
