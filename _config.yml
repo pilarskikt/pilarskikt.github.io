@@ -21,6 +21,13 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+# Ensure posts use our aircloud post layout
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post
+
 # Theme (Minima is default and fully supported on GitHub Pages)
 theme: minima
 
