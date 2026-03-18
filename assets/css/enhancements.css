@@ -1,10 +1,10 @@
 /* Copy button on code blocks – reserve space so first line isn’t covered */
-.post-content pre,
-.post-content .highlight {
+.post-content .highlight,
+.post-content > pre {
   padding-top: 2.25rem;
 }
-.post-content pre .copy-code-btn,
-.post-content .highlight .copy-code-btn {
+.post-content .highlight .copy-code-btn,
+.post-content > pre .copy-code-btn {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -18,14 +18,14 @@
   cursor: pointer;
   transition: color 0.15s, background 0.15s, border-color 0.15s;
 }
-.post-content pre .copy-code-btn:hover,
-.post-content .highlight .copy-code-btn:hover {
+.post-content .highlight .copy-code-btn:hover,
+.post-content > pre .copy-code-btn:hover {
   color: #e6edf3;
   background: #30363d;
   border-color: #484f58;
 }
-.post-content pre .copy-code-btn.copied,
-.post-content .highlight .copy-code-btn.copied {
+.post-content .highlight .copy-code-btn.copied,
+.post-content > pre .copy-code-btn.copied {
   color: #7ee787;
   border-color: #7ee787;
 }
@@ -169,4 +169,67 @@ html {
 /* Nav link focus/hover consistency */
 .nav .contents a:focus-visible span {
   color: #4990E2;
+}
+
+/* Nav avatar – subtle hover */
+.nav .avatar img {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.nav .avatar:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Post meta tags – pill style */
+.post-meta a.tag {
+  display: inline-block;
+  padding: 0.15em 0.5em;
+  margin: 0 0.1em;
+  background: rgba(73, 144, 226, 0.15);
+  color: #7eb8ff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.post-meta a.tag:hover {
+  background: rgba(73, 144, 226, 0.3);
+  color: #e6edf3;
+}
+
+/* Post content links – underline on hover */
+.post-content a:not(.copy-code-btn):not(.tag) {
+  text-decoration: underline;
+  text-decoration-color: rgba(73, 144, 226, 0.4);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s;
+}
+.post-content a:not(.copy-code-btn):not(.tag):hover {
+  text-decoration-color: #4990E2;
+}
+
+/* Pager buttons – slightly clearer hover */
+.pager a {
+  transition: color 0.2s, background 0.2s, border-color 0.2s !important;
+}
+
+/* Giscus section – clear separation from post */
+.post-content .giscus {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(139, 148, 158, 0.2);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .index-about,
+  .post-preview-container,
+  .post-preview,
+  .back-to-top,
+  .nav .avatar img {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

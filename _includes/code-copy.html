@@ -1,7 +1,8 @@
 <script>
 (function() {
   function addCopyButtons() {
-    var blocks = document.querySelectorAll('.post-content pre, .post-content .highlight');
+    /* One button per block: .highlight wraps Rouge blocks; > pre catches bare pre */
+    var blocks = document.querySelectorAll('.post-content .highlight, .post-content > pre');
     blocks.forEach(function(block) {
       if (block.querySelector('.copy-code-btn')) return;
       var code = block.querySelector('code') || block;
