@@ -10,12 +10,12 @@ This site is built with **Jekyll** and deployed via **GitHub Actions** when you 
    ```
    Example: `_posts/2025-03-18-my-new-post.md`
 
-2. Add YAML front matter at the top:
+2. Add YAML front matter at the top (use suggested tags below for consistency):
    ```yaml
    ---
    title: Your post title
    date: 2025-03-18
-   tags: [tag1, tag2]
+   tags: [aws, terraform]
    ---
    ```
 
@@ -54,6 +54,18 @@ If you previously used “Deploy from a branch”, switch to **GitHub Actions** 
 - **Smooth scroll** – In-page anchor links (e.g. tags) scroll smoothly.
 - **Post list hover** – Post titles on the home page turn blue on hover.
 - **Archive active state** – “Archives” in the nav is highlighted when you’re on the archive page.
+
+## Suggested tags (blog focus: AWS, Terraform, OCI, OpenTofu)
+
+Use these consistently so the Tags page and search stay useful:
+
+| Focus | Tags to use |
+|-------|-------------|
+| **Cloud** | `aws`, `oci` |
+| **IaC** | `terraform`, `opentofu` |
+| **General** | `iac`, `automation`, `devops`, `howto`, `til` |
+
+Examples: `[aws, terraform]`, `[oci, opentofu]`, `[aws, terraform, automation]`. Keep tags lowercase and short; add others (e.g. `python`, `vmware`) when the post is about them.
 
 ## Optional tweaks
 
