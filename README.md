@@ -23,6 +23,19 @@ This site is built with **Jekyll** and deployed via **GitHub Actions** when you 
 
 4. Commit and push to `main`. GitHub Actions will build the site and deploy it; your new post will appear automatically. No manual build step needed on your side.
 
+### Hiding a post while you write it
+
+Add **`published: false`** to the front matter. The post stays in `_posts/` but **won’t show** on the site or in the feed. When it’s ready, set `published: true` or remove the line (default is true).
+
+```yaml
+---
+title: My draft post
+date: 2025-03-20
+published: false
+tags: [draft]
+---
+```
+
 ## Local development (optional)
 
 - **Ruby 3.0+** and Bundler are required.

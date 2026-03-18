@@ -2,6 +2,7 @@
 title: Clean Neovim IDE setup
 description: How I set up my Neovim for everyday work with code
 date: 2025-01-01
+published: false
 tags: [shell, terminal, IDE, neovim, devops]
 categories: [Neovim]
 ---
@@ -32,3 +33,15 @@ First of all, let's talk about my Neovim config structure. I would say it's fair
         ├── treesitter.lua
         └── whichkey.lua
 ```
+
+In .config/neovim/init.lua im calling whole config dir by `require("config")`. After that i create .config/lua/config/init.lua in which i will require all of my basic configurations and lazy plugin manager.
+
+```shell
+require("config.lazy")
+require("config.options")
+require("config.keymaps")
+require("config.statusline")
+```
+I think that most of the files are selfexlpanatory
+
+

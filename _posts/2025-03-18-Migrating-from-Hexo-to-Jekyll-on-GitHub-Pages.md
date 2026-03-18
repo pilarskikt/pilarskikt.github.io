@@ -20,7 +20,7 @@ So the goal was: same blog, same look (I kept my previous theme’s style), but 
 ### 1. New Jekyll layout
 
 - Added **`_config.yml`** (site title, URL, permalinks, theme, Giscus).
-- Created **`_posts/`** and moved the existing posts from Hexo’s `source/_posts/` into it. Post filenames: `YYYY-MM-DD-slug.md`. Front matter stayed similar: `title`, `date`, `tags`; Hexo-only things like `{% codeblock %}` were turned into normal fenced code blocks.
+- Created **`_posts/`** and moved the existing posts from Hexo’s `source/_posts/` into it. Post filenames: `YYYY-MM-DD-slug.md`. Front matter stayed similar: `title`, `date`, `tags`; Hexo-only things like {% raw %}`{% codeblock %}`{% endraw %} were turned into normal fenced code blocks.
 
 ### 2. Theme and look
 
