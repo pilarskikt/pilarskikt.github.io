@@ -83,7 +83,8 @@ button:focus:not(:focus-visible) {
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s, color 0.15s, background 0.15s;
+  transform: scale(0.9);
+  transition: opacity 0.2s, visibility 0.2s, color 0.15s, background 0.15s, transform 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,6 +96,7 @@ button:focus:not(:focus-visible) {
 .back-to-top.visible {
   opacity: 1;
   visibility: visible;
+  transform: scale(1);
 }
 .back-to-top:hover {
   color: #e6edf3;
@@ -103,6 +105,55 @@ button:focus:not(:focus-visible) {
 .back-to-top:focus-visible {
   outline: 2px solid #4990E2;
   outline-offset: 2px;
+}
+
+/* Subtitle / sign at top – polish for “IT journey” tagline */
+.index-about {
+  letter-spacing: 0.02em;
+}
+.index-about i {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #8b949e;
+  text-shadow: 0 0 24px rgba(73, 144, 226, 0.15);
+  display: inline-block;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(139, 148, 158, 0.25);
+  margin-bottom: -0.5rem;
+}
+
+/* Post list – subtle stagger fade-in */
+.post-preview-container {
+  animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.post-preview {
+  animation: postReveal 0.4s ease-out backwards;
+}
+.post-preview:nth-child(1) { animation-delay: 0.05s; }
+.post-preview:nth-child(2) { animation-delay: 0.1s; }
+.post-preview:nth-child(3) { animation-delay: 0.15s; }
+.post-preview:nth-child(4) { animation-delay: 0.2s; }
+.post-preview:nth-child(5) { animation-delay: 0.25s; }
+.post-preview:nth-child(6) { animation-delay: 0.3s; }
+.post-preview:nth-child(7) { animation-delay: 0.35s; }
+.post-preview:nth-child(8) { animation-delay: 0.4s; }
+.post-preview:nth-child(9) { animation-delay: 0.45s; }
+.post-preview:nth-child(n+10) { animation-delay: 0.5s; }
+@keyframes postReveal {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Post preview row – smooth hover */
+.post-preview {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.post-preview:hover {
+  opacity: 1;
 }
 
 /* Smoother anchor scroll (tags page, etc.) */
