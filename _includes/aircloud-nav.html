@@ -1,0 +1,26 @@
+<nav class="nav" id="nav">
+  <div class="avatar-name">
+    <div class="avatar radius">
+      <img src="{{ '/assets/img/avatar.png' | relative_url }}" alt="{{ site.author }}" />
+    </div>
+    <div class="name">
+      <i>{{ site.author }}</i>
+    </div>
+  </div>
+  <div class="contents" id="nav-content">
+    <ul>
+      <li class="{% if page.url == '/' or page.url == '' %}active{% endif %}">
+        <a href="{{ '/' | relative_url }}"><span>Home</span></a>
+      </li>
+      <li class="{% if page.url contains '/tags' %}active{% endif %}">
+        <a href="{{ '/tags/' | relative_url }}"><span>Tags</span></a>
+      </li>
+      <li>
+        <a href="{{ '/archive/' | relative_url }}"><span>Archives</span></a>
+      </li>
+      <li class="{% if page.url contains '/about' %}active{% endif %}">
+        <a href="{{ '/about/' | relative_url }}"><span>About</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>

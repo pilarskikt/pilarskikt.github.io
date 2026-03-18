@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+{% include head.html %}
+<body>
+  <div class="site-nav-toggle" id="site-nav-toggle">
+    <button type="button" aria-label="Toggle menu">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+  <div class="index-about">
+    <i>{{ site.subtitle | default: site.description }}</i>
+  </div>
+  <div class="index-container">
+    <div class="index-left">
+      {% include aircloud-nav.html %}
+    </div>
+    <div class="index-middle">
+      {{ content }}
+      {% include aircloud-footer.html %}
+    </div>
+  </div>
+  <script>
+    (function() {
+      var toggle = document.getElementById('site-nav-toggle');
+      var nav = document.getElementById('nav-content');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+          nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

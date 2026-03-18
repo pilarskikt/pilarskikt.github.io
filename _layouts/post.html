@@ -1,0 +1,26 @@
+---
+layout: base
+---
+
+<div class="post-container">
+  <div class="post-title">{{ page.title | escape }}</div>
+  <div class="post-meta">
+    <span class="attr">{{ page.date | date: "%Y-%m-%d %H:%M" }}</span>
+    {% if page.tags.size > 0 %}
+    <span class="attr">
+      {% for tag in page.tags %}
+      <a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" title="{{ tag }}">{{ tag }}</a>{% unless forloop.last %} / {% endunless %}
+      {% endfor %}
+    </span>
+    {% endif %}
+  </div>
+  <div class="post-content no-indent">
+    {{ content }}
+    <br />
+    <div class="giscus">
+      {% if page.comments != false %}
+      {% include comments.html %}
+      {% endif %}
+    </div>
+  </div>
+</div>

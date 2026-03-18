@@ -1,0 +1,44 @@
+---
+layout: base
+---
+
+{% if content != blank %}
+<div class="index-about" style="margin-bottom: 1em;">
+  {{ content }}
+</div>
+{% endif %}
+<div class="post-preview-container">
+  {% for post in site.posts %}
+  <div class="post-preview">
+    <div class="post-time">{{ post.date | date: "%Y-%m-%d" }}</div>
+    <div class="post-info">
+      <a href="{{ post.url | relative_url }}">
+        <h3>{{ post.title | escape }}</h3>
+      </a>
+      <p>
+        {% if post.tags.size > 0 %}
+        <span>/</span>
+        {% for tag in post.tags %}
+        <a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" title="{{ tag }}">{{ tag }}</a><span>/</span>
+        {% endfor %}
+        {% endif %}
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+  {% if paginator.previous_page %}
+  <li class="previous">
+    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+  </li>
+  {% endif %}
+  {% if paginator.next_page %}
+  <li class="next">
+    <a href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
+  </li>
+  {% endif %}
+</ul>
+{% endif %}

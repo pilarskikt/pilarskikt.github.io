@@ -1,0 +1,27 @@
+---
+layout: base
+---
+
+<div class="post-container">
+  <div class="post-title">Tags</div>
+  <div id="tag_cloud" class="tags">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+    <a href="#{{ tag[0] | slugify }}" class="tag-triangle" title="{{ tag[0] }}"><span class="tag-i">{{ tag[0] }}</span></a>
+    {% endfor %}
+  </div>
+  <div class="post-content no-indent">
+    {% for tag in sorted_tags %}
+    <div class="one-tag-list">
+      <span class="listing-seperator" id="{{ tag[0] | slugify }}">{{ tag[0] }}</span>
+      {% for post in tag[1] %}
+      <div class="post-preview">
+        <a href="{{ post.url | relative_url }}">
+          <h2 class="post-title">{{ post.title | escape }}</h2>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
