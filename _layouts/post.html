@@ -6,6 +6,9 @@ layout: base
   <div class="post-title">{{ page.title | escape }}</div>
   <div class="post-meta">
     <span class="attr">{{ page.date | date: "%Y-%m-%d %H:%M" }}</span>
+    {% assign words = page.content | number_of_words %}
+    {% assign read_time = words | divided_by: 200 %}
+    <span class="attr">{% if read_time == 0 %}1{% else %}{{ read_time }}{% endif %} min read</span>
     {% if page.tags.size > 0 %}
     <span class="attr">
       {% for tag in page.tags %}

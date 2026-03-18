@@ -2,8 +2,8 @@
 # https://jekyllrb.com/docs/configuration/
 
 title: IT Journey
-subtitle: ''
-description: ''
+subtitle: 'Notes and how-tos from the journey'
+description: 'IT blog – cloud, automation, DevOps, and infrastructure notes by Pilarski.'
 author: Pilarski
 email: 
 language: en
@@ -54,14 +54,9 @@ giscus:
   theme: preferred_color_scheme
   lang: en
 
-# Exclude from Jekyll processing (these stay in repo for CI / reference)
+# Exclude from Jekyll processing
 exclude:
   - node_modules
   - vendor
-  - themes
-  - source
-  - scaffolds
-  - package.json
-  - package-lock.json
   - .git
   - .github

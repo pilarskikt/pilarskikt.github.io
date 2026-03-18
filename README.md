@@ -29,10 +29,6 @@ This site is built with **Jekyll** and deployed via **GitHub Actions** when you 
 - Run: `bundle install` then `bundle exec jekyll serve`
 - Open http://localhost:4000
 
-## Migration from Hexo
-
-This repo was migrated from Hexo to Jekyll. Old Hexo files (`source/`, `themes/`, `scaffolds/`, `package.json`) are still present but are excluded from Jekyll. You can remove them later if you no longer need them.
-
 ## GitHub Pages setup
 
 In the repo **Settings → Pages**:
@@ -40,3 +36,27 @@ In the repo **Settings → Pages**:
 - **Source**: “GitHub Actions” (the workflow in `.github/workflows/pages.yml` builds and deploys the site).
 
 If you previously used “Deploy from a branch”, switch to **GitHub Actions** so the Jekyll workflow runs on each push.
+
+## Features (included)
+
+- **Description & subtitle** – Set in `_config.yml`; used for SEO, feed, and tagline above the post list.
+- **Reading time** – Shown in post meta (“X min read”), computed from word count.
+- **Copy button** – Each code block has a “Copy” button (top-right); shows “Copied!” on success.
+- **Dark code blocks** – Styled in `assets/css/code-blocks.css`; tune colors there if you like.
+- **RSS** – Footer link to `/feed.xml` for subscribers.
+- **Archives** – Nav link to `/archive/` (posts by year); active state in sidebar.
+
+## UI enhancements
+
+- **Skip to main content** – “Skip to main content” link (visible on keyboard focus) for accessibility.
+- **Focus styles** – Visible outline on links/buttons when using keyboard (Tab).
+- **Back to top** – Floating “↑” button at bottom-right on long pages; appears after you scroll down.
+- **Smooth scroll** – In-page anchor links (e.g. tags) scroll smoothly.
+- **Post list hover** – Post titles on the home page turn blue on hover.
+- **Archive active state** – “Archives” in the nav is highlighted when you’re on the archive page.
+
+## Optional tweaks
+
+- Edit `_config.yml` for `description`, `subtitle`, `author`.
+- Add more nav links in `_includes/aircloud-nav.html`.
+- Adjust code block colors in `assets/css/code-blocks.css` or copy-button style in `assets/css/enhancements.css`.

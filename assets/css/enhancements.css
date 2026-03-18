@@ -1,0 +1,121 @@
+/* Copy button on code blocks – reserve space so first line isn’t covered */
+.post-content pre,
+.post-content .highlight {
+  padding-top: 2.25rem;
+}
+.post-content pre .copy-code-btn,
+.post-content .highlight .copy-code-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.35em 0.65em;
+  font-size: 0.75rem;
+  font-family: inherit;
+  color: #8b949e;
+  background: #252930;
+  border: 1px solid #2d323e;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.post-content pre .copy-code-btn:hover,
+.post-content .highlight .copy-code-btn:hover {
+  color: #e6edf3;
+  background: #30363d;
+  border-color: #484f58;
+}
+.post-content pre .copy-code-btn.copied,
+.post-content .highlight .copy-code-btn.copied {
+  color: #7ee787;
+  border-color: #7ee787;
+}
+
+/* Reading time in post meta */
+.post-meta .attr {
+  white-space: nowrap;
+}
+
+/* Skip to main content (accessibility) */
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  color: #0d1117;
+  background: #e6edf3;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 0.5rem;
+  outline: 2px solid #4990E2;
+  outline-offset: 2px;
+}
+
+/* Focus visible for keyboard users */
+a:focus-visible,
+button:focus-visible,
+.copy-code-btn:focus-visible {
+  outline: 2px solid #4990E2;
+  outline-offset: 2px;
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  color: #8b949e;
+  background: #252930;
+  border: 1px solid #2d323e;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s, color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  color: #e6edf3;
+  background: #30363d;
+}
+.back-to-top:focus-visible {
+  outline: 2px solid #4990E2;
+  outline-offset: 2px;
+}
+
+/* Smoother anchor scroll (tags page, etc.) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Post list hover – subtle highlight */
+.post-preview:hover .post-info a h3 {
+  color: #4990E2 !important;
+}
+
+/* Nav link focus/hover consistency */
+.nav .contents a:focus-visible span {
+  color: #4990E2;
+}

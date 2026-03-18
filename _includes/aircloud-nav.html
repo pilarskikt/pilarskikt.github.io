@@ -15,7 +15,7 @@
       <li class="{% if page.url contains '/tags' %}active{% endif %}">
         <a href="{{ '/tags/' | relative_url }}"><span>Tags</span></a>
       </li>
-      <li>
+      <li class="{% if page.url contains '/archive' %}active{% endif %}">
         <a href="{{ '/archive/' | relative_url }}"><span>Archives</span></a>
       </li>
       <li class="{% if page.url contains '/about' %}active{% endif %}">

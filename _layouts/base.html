@@ -2,6 +2,7 @@
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 {% include head.html %}
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="site-nav-toggle" id="site-nav-toggle">
     <button type="button" aria-label="Toggle menu">
       <span class="btn-bar"></span>
@@ -16,7 +17,7 @@
     <div class="index-left">
       {% include aircloud-nav.html %}
     </div>
-    <div class="index-middle">
+    <div class="index-middle" id="main-content">
       {{ content }}
       {% include aircloud-footer.html %}
     </div>
@@ -32,5 +33,7 @@
       }
     })();
   </script>
+  {% include code-copy.html %}
+  {% include back-to-top.html %}
 </body>
 </html>

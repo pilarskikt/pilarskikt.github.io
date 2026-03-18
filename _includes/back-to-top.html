@@ -1,0 +1,15 @@
+<a href="#main-content" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+<script>
+(function() {
+  var btn = document.getElementById('back-to-top');
+  var main = document.getElementById('main-content');
+  if (!btn || !main) return;
+  function updateVisibility() {
+    var rect = main.getBoundingClientRect();
+    if (rect.bottom < 0) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  }
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  updateVisibility();
+})();
+</script>
